@@ -6,8 +6,8 @@ const PRESETS = [
   { label: '5m', seconds: 5 * 60 },
   { label: '10m', seconds: 10 * 60 },
   { label: '15m', seconds: 15 * 60 },
-  { label: '25m', seconds: 25 * 60 },
   { label: '30m', seconds: 30 * 60 },
+  { label: '45m', seconds: 45 * 60 },
   { label: '1h', seconds: 60 * 60 },
 ]
 
@@ -40,7 +40,7 @@ function playAlarm() {
 
 export function TimerClock() {
   const [hours, setHours] = useState('0')
-  const [minutes, setMinutes] = useState('5')
+  const [minutes, setMinutes] = useState('0')
   const [seconds, setSeconds] = useState('0')
   const [remaining, setRemaining] = useState(0)
   const [initial, setInitial] = useState(0)
@@ -115,7 +115,7 @@ export function TimerClock() {
     setRemaining(0)
     setInitial(0)
     setHours('0')
-    setMinutes('5')
+    setMinutes('0')
     setSeconds('0')
   }
 
@@ -213,7 +213,7 @@ export function TimerClock() {
         <Button
           variant={finished ? 'primary' : running ? 'secondary' : 'primary'}
           onClick={handleStartPause}
-          className="flex-1 min-w-[100px]"
+          className="flex-1 min-w-25"
           disabled={!running && !finished && totalInputSeconds() <= 0}
         >
           {finished ? (
