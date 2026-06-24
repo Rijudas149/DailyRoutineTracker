@@ -24,6 +24,7 @@ export function Stopwatch() {
 
   const tick = useCallback(() => {
     setElapsed(baseRef.current + (performance.now() - startRef.current))
+    // eslint-disable-next-line react-hooks/immutability
     frameRef.current = requestAnimationFrame(tick)
   }, [])
 
@@ -73,7 +74,7 @@ export function Stopwatch() {
         <Button
           variant={running ? 'secondary' : 'primary'}
           onClick={handleStartPause}
-          className="flex-1 min-w-[100px]"
+          className="flex-1 min-w-25"
         >
           {running ? (
             <><Pause className="w-4 h-4 inline mr-1" />Pause</>
